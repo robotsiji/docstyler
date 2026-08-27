@@ -1,0 +1,135 @@
+/* Google Gemini Specific Style Overrides to mimic Google Docs */
+
+/* Push main workspace below Google Docs header */
+body.gdocs-styled mat-sidenav-content,
+body.gdocs-styled .main-content {
+  padding-top: 104px !important;
+  background-color: var(--docs-bg-gray) !important;
+}
+
+/* Base chat background adjustments */
+body.gdocs-styled chat-container,
+body.gdocs-styled .conversation-container,
+body.gdocs-styled .chat-history {
+  background-color: var(--docs-bg-gray) !important;
+}
+
+/* Hide Gemini's standard top bar */
+body.gdocs-styled header,
+body.gdocs-styled .top-nav,
+body.gdocs-styled div[class*="header-container"] {
+  display: none !important;
+}
+
+/* Style messages into continuous A4 pages */
+body.gdocs-styled user-query,
+body.gdocs-styled model-response,
+body.gdocs-styled div.query-content,
+body.gdocs-styled div.reply-content-container {
+  background-color: #ffffff !important;
+  border-bottom: none !important;
+  width: 100% !important;
+  max-width: 816px !important; /* US Letter Width */
+  margin: 0 auto !important;
+  padding: 16px 80px !important;
+  box-sizing: border-box !important;
+  border-left: 1px solid var(--docs-border-color) !important;
+  border-right: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.1) !important;
+  display: block !important;
+}
+
+/* Set up margins and borders to encapsulate the feed as a continuous page */
+body.gdocs-styled user-query:first-of-type,
+body.gdocs-styled div.query-content:first-of-type {
+  margin-top: 30px !important;
+  padding-top: 60px !important;
+  border-top: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 -2px 5px rgba(60,64,67,0.08), -1px 0 2px rgba(60,64,67,0.05), 1px 0 2px rgba(60,64,67,0.05) !important;
+}
+
+body.gdocs-styled model-response:last-of-type,
+body.gdocs-styled div.reply-content-container:last-of-type {
+  padding-bottom: 60px !important;
+  border-bottom: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 4px 6px rgba(60,64,67,0.08), -1px 0 2px rgba(60,64,67,0.05), 1px 0 2px rgba(60,64,67,0.05) !important;
+}
+
+/* Typography styles for content */
+body.gdocs-styled user-query {
+  font-family: 'Arial', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: calc(16px * var(--gdocs-font-scale, 1)) !important;
+  color: #111111 !important;
+  border-left: 3px solid var(--docs-blue) !important;
+  padding-left: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+body.gdocs-styled model-response .markdown,
+body.gdocs-styled model-response .message-content {
+  font-family: 'Arial', sans-serif !important;
+  font-size: calc(14px * var(--gdocs-font-scale, 1)) !important;
+  line-height: 1.6 !important;
+  color: var(--docs-text-dark) !important;
+}
+
+/* Hide user and model avatar structures */
+body.gdocs-styled .query-author-avatar,
+body.gdocs-styled .model-avatar,
+body.gdocs-styled .avatar-container {
+  display: none !important;
+}
+
+/* --- Change Prompt Box (Chatbox) to Flat --- */
+/* Target Gemini's prompt container */
+body.gdocs-styled .input-area-container,
+body.gdocs-styled div:has(> textarea[placeholder*="Gemini"]),
+body.gdocs-styled .text-input-container {
+  border-radius: 4px !important; /* Flat edges */
+  border: 1px solid var(--docs-border-color) !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1) !important;
+  padding: 6px 12px !important;
+  max-width: 816px !important;
+  margin: 0 auto !important;
+}
+
+/* Strip inner capsule borders in input layout */
+body.gdocs-styled .input-area,
+body.gdocs-styled div[class*="text-container"] {
+  border-radius: 4px !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Flatten textarea input */
+body.gdocs-styled textarea[placeholder*="Gemini"],
+body.gdocs-styled textarea.textarea-input {
+  border-radius: 4px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: 'Arial', sans-serif !important;
+  font-size: 14px !important;
+}
+
+/* Flat prompt actions */
+body.gdocs-styled button.send-button,
+body.gdocs-styled .input-area-container button {
+  border-radius: 4px !important;
+}
+
+/* Gemini Left Drawer sidebar styles to match Docs Outline */
+body.gdocs-styled mat-sidenav,
+body.gdocs-styled .navigation-drawer {
+  background-color: #f0f4f9 !important;
+  border-right: 1px solid var(--docs-border-color) !important;
+}
+
+body.gdocs-styled mat-sidenav a,
+body.gdocs-styled .navigation-drawer a {
+  color: var(--docs-text-muted) !important;
+  border-radius: 0 16px 16px 0 !important;
+}

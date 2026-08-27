@@ -1,0 +1,125 @@
+/* Claude AI Specific Style Overrides to mimic Google Docs */
+
+/* Push main workspace below Google Docs header */
+body.gdocs-styled div[role="main"],
+body.gdocs-styled .flex-1.overflow-y-auto {
+  padding-top: 104px !important;
+  background-color: var(--docs-bg-gray) !important;
+}
+
+/* Background resets for main content area */
+body.gdocs-styled .bg-bg-light,
+body.gdocs-styled .bg-bg-main-light,
+body.gdocs-styled .bg-bg-main,
+body.gdocs-styled div[class*="ChatMessage_container"] {
+  background-color: var(--docs-bg-gray) !important;
+}
+
+/* Hide Claude's standard sticky top navbar */
+body.gdocs-styled header,
+body.gdocs-styled div[class*="styles_header"],
+body.gdocs-styled .sticky.top-0 {
+  display: none !important;
+}
+
+/* Style messages into an continuous A4 page document */
+body.gdocs-styled .font-user-message,
+body.gdocs-styled [data-testid="user-message"],
+body.gdocs-styled div[class*="ChatMessage_assistant"],
+body.gdocs-styled .grid.grid-cols-1 {
+  background-color: #ffffff !important;
+  border-bottom: none !important;
+  width: 100% !important;
+  max-width: 816px !important; /* Page size */
+  margin: 0 auto !important;
+  padding: 16px 80px !important;
+  box-sizing: border-box !important;
+  border-left: 1px solid var(--docs-border-color) !important;
+  border-right: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.1) !important;
+}
+
+/* Prepend/Append styles for page boundaries */
+body.gdocs-styled div[class*="ChatMessage_user"]:first-of-type,
+body.gdocs-styled [data-testid="user-message"]:first-of-type {
+  margin-top: 30px !important;
+  padding-top: 60px !important;
+  border-top: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 -2px 5px rgba(60,64,67,0.08), -1px 0 2px rgba(60,64,67,0.05), 1px 0 2px rgba(60,64,67,0.05) !important;
+}
+
+body.gdocs-styled div[class*="ChatMessage_container"]:last-of-type {
+  padding-bottom: 60px !important;
+  border-bottom: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 4px 6px rgba(60,64,67,0.08), -1px 0 2px rgba(60,64,67,0.05), 1px 0 2px rgba(60,64,67,0.05) !important;
+}
+
+/* Font and text settings for document content */
+body.gdocs-styled .font-user-message,
+body.gdocs-styled [data-testid="user-message"] {
+  font-family: 'Arial', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: calc(16px * var(--gdocs-font-scale, 1)) !important;
+  color: #111111 !important;
+  border-left: 3px solid var(--docs-blue) !important;
+  padding-left: 14px !important;
+  margin-bottom: 8px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+body.gdocs-styled div[class*="ChatMessage_assistant"] .prose,
+body.gdocs-styled div[class*="ChatMessage_assistant"] .markdown {
+  font-family: 'Arial', sans-serif !important;
+  font-size: calc(14px * var(--gdocs-font-scale, 1)) !important;
+  line-height: 1.6 !important;
+  color: var(--docs-text-dark) !important;
+}
+
+/* Remove Claude user and bot avatars from document layout */
+body.gdocs-styled div[class*="ChatMessage_avatar"] {
+  display: none !important;
+}
+
+/* --- Change Prompt Box (Chatbox) to Flat --- */
+/* Target bottom textbox form */
+body.gdocs-styled fieldset,
+body.gdocs-styled div:has(> textarea[placeholder*="Claude"]) {
+  border-radius: 4px !important; /* Flat design */
+  border: 1px solid var(--docs-border-color) !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1) !important;
+  padding: 6px 12px !important;
+  max-width: 816px !important;
+  margin: 0 auto !important;
+}
+
+/* Flatten the text prompt area */
+body.gdocs-styled textarea[placeholder*="Claude"],
+body.gdocs-styled div[contenteditable="true"] {
+  border-radius: 4px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: 'Arial', sans-serif !important;
+  font-size: 14px !important;
+}
+
+/* Flat control buttons inside Claude prompt bar */
+body.gdocs-styled button:has(svg) {
+  border-radius: 4px !important;
+}
+
+/* Claude Sidebar visual styling to match Docs Outline */
+body.gdocs-styled .bg-bg-dark,
+body.gdocs-styled div[class*="styles_sidebar"] {
+  background-color: #f0f4f9 !important;
+  border-right: 1px solid var(--docs-border-color) !important;
+}
+
+body.gdocs-styled div[class*="styles_sidebar"] a,
+body.gdocs-styled div[class*="styles_sidebar"] button {
+  color: var(--docs-text-muted) !important;
+  border-radius: 0 16px 16px 0 !important;
+}

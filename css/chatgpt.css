@@ -1,0 +1,141 @@
+/* ChatGPT Specific Style Overrides to mimic Google Docs */
+
+/* Push main workspace below Google Docs header */
+body.gdocs-styled main {
+  padding-top: 104px !important;
+  background-color: var(--docs-bg-gray) !important;
+}
+
+/* Main workspace backgrounds */
+body.gdocs-styled main,
+body.gdocs-styled main .react-scroll-to-bottom--css-jymto-79h73g-id,
+body.gdocs-styled main div[class*="react-scroll-to-bottom"],
+body.gdocs-styled main .flex-1.overflow-hidden {
+  background-color: var(--docs-bg-gray) !important;
+}
+
+/* Hide or restyle ChatGPT's original top banner/header */
+body.gdocs-styled main > div > .sticky {
+  display: none !important;
+}
+
+/* Style the central message feed container to look like a stack of white paper sheets */
+body.gdocs-styled main .flex.flex-col.items-center {
+  background-color: var(--docs-bg-gray) !important;
+  padding-bottom: 180px !important;
+}
+
+/* Clean up individual conversation rows to make them blend into a single white document */
+body.gdocs-styled [data-testid^="conversation-turn-"] {
+  background-color: #ffffff !important;
+  border-bottom: none !important;
+  width: 100% !important;
+  max-width: 816px !important; /* Standard US Letter page width */
+  margin: 0 auto !important;
+  padding: 16px 80px !important; /* 1-inch margins on sides */
+  box-sizing: border-box !important;
+  border-left: 1px solid var(--docs-border-color) !important;
+  border-right: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.1) !important;
+}
+
+/* Create top margin and rounded card borders to create a cohesive single A4 page canvas */
+body.gdocs-styled [data-testid^="conversation-turn-"]:first-of-type {
+  margin-top: 30px !important;
+  padding-top: 60px !important;
+  border-top: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 -2px 5px rgba(60,64,67,0.08), -1px 0 2px rgba(60,64,67,0.05), 1px 0 2px rgba(60,64,67,0.05) !important;
+}
+
+body.gdocs-styled [data-testid^="conversation-turn-"]:last-of-type {
+  padding-bottom: 60px !important;
+  border-bottom: 1px solid var(--docs-border-color) !important;
+  box-shadow: 0 4px 6px rgba(60,64,67,0.08), -1px 0 2px rgba(60,64,67,0.05), 1px 0 2px rgba(60,64,67,0.05) !important;
+}
+
+/* Clean text and prose inside messages to look like standard typed document content */
+body.gdocs-styled [data-testid^="conversation-turn-"] .prose,
+body.gdocs-styled [data-testid^="conversation-turn-"] .markdown {
+  font-family: 'Arial', sans-serif !important;
+  font-size: calc(14px * var(--gdocs-font-scale, 1)) !important;
+  line-height: 1.6 !important;
+  color: var(--docs-text-dark) !important;
+}
+
+/* Hide original avatars inside the document text space to keep a clean sheet of paper */
+body.gdocs-styled [data-testid^="conversation-turn-"] .flex-shrink-0 {
+  display: none !important;
+}
+
+/* Style User query differently (like a bolded Document Heading or Note) */
+body.gdocs-styled [data-testid="user-message"] {
+  font-weight: 700 !important;
+  font-size: calc(16px * var(--gdocs-font-scale, 1)) !important;
+  color: #111111 !important;
+  border-left: 3px solid var(--docs-blue) !important;
+  padding-left: 14px !important;
+  margin-bottom: 8px !important;
+  background: transparent !important;
+}
+
+/* --- Change Prompt Box (Chatbox) to Flat --- */
+/* Target the bottom box container */
+body.gdocs-styled form {
+  border-radius: 4px !important; /* Flat edges */
+  border: 1px solid var(--docs-border-color) !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1) !important;
+  padding: 6px 12px !important;
+  max-width: 816px !important;
+  margin: 0 auto !important;
+}
+
+/* Strip inner round pill container stylings */
+body.gdocs-styled form > div,
+body.gdocs-styled form .flex.w-full.items-center,
+body.gdocs-styled form div[class*="rounded-"] {
+  border-radius: 4px !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Rectangularize buttons inside chat bar */
+body.gdocs-styled form button,
+body.gdocs-styled form button[class*="rounded-full"] {
+  border-radius: 4px !important;
+}
+
+/* Force standard flat styling for prompt textbox */
+body.gdocs-styled textarea#prompt-textarea {
+  border-radius: 4px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  font-family: 'Arial', sans-serif !important;
+  font-size: 14px !important;
+  padding: 8px 0 !important;
+}
+
+/* Hide unnecessary prompt sub-elements like mic/gpt logo buttons if they clutter the doc look */
+body.gdocs-styled form .absolute.right-2 {
+  right: 12px !important;
+}
+
+/* Adjust Sidebar visual to blend into Google Docs file outline on the left */
+body.gdocs-styled .dark .bg-token-sidebar-surface-primary,
+body.gdocs-styled [class*="sidebar-container"],
+body.gdocs-styled nav {
+  background-color: #f0f4f9 !important;
+  border-right: 1px solid var(--docs-border-color) !important;
+}
+
+body.gdocs-styled nav a,
+body.gdocs-styled nav button {
+  color: var(--docs-text-muted) !important;
+  border-radius: 0 16px 16px 0 !important; /* Google docs folder tab style */
+}
+
+body.gdocs-styled nav a:hover {
+  background-color: var(--docs-active-gray) !important;
+}
